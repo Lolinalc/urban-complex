@@ -5,6 +5,7 @@ Sistema web completo para gestionar una escuela de danza, permitiendo a los estu
 ## 🎯 Características
 
 ### Para Estudiantes:
+
 - ✅ Registro e inicio de sesión
 - ✅ Ver horario completo de clases
 - ✅ Reservar clases disponibles
@@ -14,6 +15,7 @@ Sistema web completo para gestionar una escuela de danza, permitiendo a los estu
 - ✅ Sistema de pagos integrado con Stripe
 
 ### Para Administradores:
+
 - ✅ Dashboard con estadísticas en tiempo real
 - ✅ Gestión completa de estudiantes
 - ✅ Visualización de todas las reservas
@@ -25,6 +27,7 @@ Sistema web completo para gestionar una escuela de danza, permitiendo a los estu
 ## 🛠️ Tecnologías Utilizadas
 
 ### Backend:
+
 - Node.js
 - Express.js
 - MongoDB + Mongoose
@@ -33,6 +36,7 @@ Sistema web completo para gestionar una escuela de danza, permitiendo a los estu
 - bcryptjs para encriptación de contraseñas
 
 ### Frontend:
+
 - React 18
 - React Router v6
 - Axios para peticiones HTTP
@@ -47,108 +51,6 @@ Antes de comenzar, asegúrate de tener instalado:
 - npm o yarn
 - MongoDB (local o cuenta en MongoDB Atlas)
 - Cuenta de Stripe (para pagos)
-
-## 🚀 Instalación
-
-### 1. Clonar el repositorio
-
-```bash
-cd urban-complex-web
-```
-
-### 2. Configurar el Backend
-
-```bash
-cd backend
-npm install
-```
-
-Crear archivo `.env` en la carpeta backend con las siguientes variables:
-
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/urban-complex
-JWT_SECRET=tu_clave_secreta_muy_segura_cambiala_en_produccion
-STRIPE_SECRET_KEY=sk_test_tu_clave_de_stripe
-STRIPE_WEBHOOK_SECRET=whsec_tu_webhook_secret
-NODE_ENV=development
-```
-
-### 3. Configurar el Frontend
-
-```bash
-cd ../frontend
-npm install
-```
-
-Crear archivo `.env` en la carpeta frontend:
-
-```env
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_STRIPE_PUBLIC_KEY=pk_test_tu_clave_publica_de_stripe
-```
-
-### 4. Iniciar MongoDB
-
-Si tienes MongoDB instalado localmente:
-
-```bash
-mongod
-```
-
-O usa MongoDB Atlas (cloud) y actualiza el `MONGODB_URI` en el archivo .env del backend.
-
-### 5. Poblar la Base de Datos con Datos Iniciales
-
-Puedes crear un usuario administrador manualmente:
-
-```bash
-cd backend
-node
-```
-
-En la consola de Node:
-
-```javascript
-const mongoose = require('mongoose');
-const User = require('./src/models/User');
-require('dotenv').config();
-
-mongoose.connect(process.env.MONGODB_URI);
-
-async function createAdmin() {
-  const admin = await User.create({
-    firstName: 'Admin',
-    lastName: 'Urban Complex',
-    email: 'admin@urbancomplex.com',
-    password: 'admin123',
-    role: 'admin',
-    phone: '555-0000'
-  });
-  console.log('Admin creado:', admin);
-  process.exit();
-}
-
-createAdmin();
-```
-
-### 6. Iniciar la Aplicación
-
-En una terminal (Backend):
-```bash
-cd backend
-npm run dev
-```
-
-En otra terminal (Frontend):
-```bash
-cd frontend
-npm start
-```
-
-La aplicación estará disponible en:
-- Frontend: http://localhost:3000
-- Backend: http://localhost:5000
 
 ## 📚 Estructura del Proyecto
 
@@ -210,6 +112,7 @@ urban-complex-web/
 ## 🔐 Roles y Permisos
 
 ### Estudiante (student):
+
 - Ver horarios
 - Reservar clases
 - Cancelar sus reservas
@@ -218,6 +121,7 @@ urban-complex-web/
 - Realizar pagos
 
 ### Administrador (admin):
+
 - Todo lo del estudiante +
 - Ver todos los estudiantes
 - Ver todas las reservas
@@ -235,26 +139,14 @@ urban-complex-web/
    - Usa Stripe CLI en desarrollo: `stripe listen --forward-to localhost:5000/api/payments/webhook`
    - En producción: configura el webhook en el dashboard de Stripe
 
-## 🎨 Personalización
-
-### Cambiar Colores:
-Edita las variables CSS en `frontend/src/assets/styles/App.css`:
-
-```css
-:root {
-  --primary-color: #ff4757;  /* Color principal */
-  --secondary-color: #2ed573;  /* Color secundario */
-  --dark-bg: #1e272e;  /* Fondo oscuro */
-  /* ... más variables ... */
-}
-```
-
 ### Agregar Nuevas Disciplinas:
+
 Edita el modelo Class en `backend/src/models/Class.js` y agrega las nuevas disciplinas al enum.
 
 ## 📱 API Endpoints
 
 ### Autenticación
+
 - POST `/api/auth/register` - Registrar usuario
 - POST `/api/auth/login` - Iniciar sesión
 - GET `/api/auth/me` - Obtener perfil
@@ -262,6 +154,7 @@ Edita el modelo Class en `backend/src/models/Class.js` y agrega las nuevas disci
 - PUT `/api/auth/updatepassword` - Cambiar contraseña
 
 ### Clases
+
 - GET `/api/classes` - Listar clases
 - GET `/api/classes/:id` - Obtener clase
 - GET `/api/classes/schedule/weekly` - Horario semanal
@@ -270,6 +163,7 @@ Edita el modelo Class en `backend/src/models/Class.js` y agrega las nuevas disci
 - DELETE `/api/classes/:id` - Eliminar clase (Admin)
 
 ### Reservas
+
 - POST `/api/bookings` - Crear reserva
 - GET `/api/bookings/my-bookings` - Mis reservas
 - GET `/api/bookings` - Todas las reservas (Admin)
@@ -278,6 +172,7 @@ Edita el modelo Class en `backend/src/models/Class.js` y agrega las nuevas disci
 - PUT `/api/bookings/:id/attendance` - Marcar asistencia (Admin)
 
 ### Pagos
+
 - POST `/api/payments/create-intent` - Crear intención de pago
 - POST `/api/payments/:id/confirm` - Confirmar pago
 - GET `/api/payments/my-payments` - Mis pagos
@@ -285,6 +180,7 @@ Edita el modelo Class en `backend/src/models/Class.js` y agrega las nuevas disci
 - POST `/api/payments/manual` - Registrar pago manual (Admin)
 
 ### Usuarios (Admin)
+
 - GET `/api/users` - Listar usuarios
 - GET `/api/users/:id` - Obtener usuario
 - PUT `/api/users/:id` - Actualizar usuario
@@ -294,51 +190,18 @@ Edita el modelo Class en `backend/src/models/Class.js` y agrega las nuevas disci
 ## 🐛 Solución de Problemas
 
 ### Error de conexión a MongoDB:
+
 - Verifica que MongoDB esté corriendo
 - Revisa la URI en el archivo .env
 - Si usas MongoDB Atlas, verifica tu IP en la whitelist
 
 ### Error CORS:
+
 - Verifica que el frontend esté configurado correctamente
 - Revisa las URL en los archivos .env
 
 ### Error de Stripe:
+
 - Verifica tus claves API
 - Asegúrate de usar las claves de test en desarrollo
 - Revisa los webhooks
-
-## 📝 Datos de Prueba
-
-Para probar el sistema, puedes usar estas credenciales:
-
-**Admin:**
-- Email: admin@urbancomplex.com
-- Password: admin123
-
-**Estudiante:** (debes registrarte desde la app)
-
-## 🚀 Despliegue a Producción
-
-### Backend (Heroku, Railway, etc):
-1. Configura las variables de entorno
-2. Cambia `NODE_ENV` a `production`
-3. Usa claves de Stripe en modo live
-4. Configura webhook de Stripe en producción
-
-### Frontend (Vercel, Netlify, etc):
-1. Actualiza `REACT_APP_API_URL` con tu URL de backend
-2. Usa la clave pública de Stripe en modo live
-3. Ejecuta `npm run build`
-4. Despliega la carpeta `build`
-
-## 📄 Licencia
-
-Este proyecto es privado y confidencial.
-
-## 👥 Soporte
-
-Para soporte, contacta a: tu@email.com
-
----
-
-Desarrollado con ❤️ para Urban Complex
