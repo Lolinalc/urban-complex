@@ -12,6 +12,8 @@ import Schedule from "./pages/Schedule";
 import MyBookings from "./pages/MyBookings";
 import Profile from "./pages/Profile";
 import AdminDashboard from "./pages/AdminDashboard";
+import Packages from "./pages/Packages";
+import PackagePurchase from "./pages/PackagePurchase";
 
 import "./assets/styles/App.css";
 
@@ -27,6 +29,16 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/schedule" element={<Schedule />} />
+              <Route path="/packages" element={<Packages />} />
+
+              <Route
+                path="/packages/purchase/:id"
+                element={
+                  <PrivateRoute>
+                    <PackagePurchase />
+                  </PrivateRoute>
+                }
+              />
 
               <Route
                 path="/my-bookings"

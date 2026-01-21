@@ -1,0 +1,406 @@
+.purchase-page {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.purchase-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.purchase-container h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.purchase-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/* Columna izquierda */
+.purchase-left {
+  background: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  height: fit-content;
+}
+
+.package-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #000;
+}
+
+.collapsible-section {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.section-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  text-align: left;
+}
+
+.section-header:hover {
+  opacity: 0.7;
+}
+
+.arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s;
+}
+
+.section-content {
+  padding: 0 0 20px 0;
+  color: #666;
+}
+
+.section-content p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.code-input {
+  width: calc(100% - 100px);
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  margin-right: 10px;
+}
+
+.apply-button {
+  background-color: #D4A574;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.apply-button:hover {
+  background-color: #c49566;
+}
+
+.purchase-summary {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.summary-row.total {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Columna derecha */
+.purchase-right {
+  background: #fff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.payment-header h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.payment-amount {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.payment-method-link {
+  margin-bottom: 20px;
+}
+
+.link-button {
+  width: 100%;
+  background-color: #00D66F;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.link-button:hover {
+  background-color: #00c263;
+}
+
+.link-logo {
+  height: 20px;
+}
+
+.payment-divider {
+  text-align: center;
+  margin: 25px 0;
+  color: #999;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.payment-divider::before,
+.payment-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.payment-divider::before {
+  left: 0;
+}
+
+.payment-divider::after {
+  right: 0;
+}
+
+.payment-form {
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #D4A574;
+}
+
+.payment-method-section {
+  margin-bottom: 25px;
+}
+
+.payment-method-section h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.card-info-label {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.card-element-container {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+.card-element-container:focus-within {
+  border-color: #D4A574;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #333;
+  cursor: pointer;
+}
+
+.checkbox-description {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 5px;
+}
+
+.payment-error {
+  background-color: #ffe5e5;
+  color: #d32f2f;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.pay-button {
+  width: 100%;
+  background-color: #0066FF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.pay-button:hover:not(:disabled) {
+  background-color: #0052cc;
+}
+
+.pay-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.payment-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.stripe-logo {
+  font-weight: 600;
+  color: #635bff;
+}
+
+.payment-footer a {
+  color: #666;
+  text-decoration: none;
+}
+
+.payment-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .purchase-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .purchase-container h1 {
+    font-size: 2rem;
+  }
+
+  .purchase-right {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .purchase-page {
+    padding: 20px 15px;
+  }
+
+  .purchase-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .payment-amount {
+    font-size: 1.6rem;
+  }
+
+  .code-input {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .apply-button {
+    width: 100%;
+  }
+}
