@@ -88,4 +88,20 @@ export const userService = {
   getStats: () => api.get("/users/stats/overview"),
 };
 
+// Package services
+export const packageService = {
+  getAll: () => api.get("/packages"),
+  getById: (id) => api.get(`/packages/${id}`),
+  purchase: (id, paymentId) =>
+    api.post(`/packages/${id}/purchase`, { paymentId }),
+  getMyPackages: (filters) =>
+    api.get("/packages/my-packages/list", { params: filters }),
+  getMyActivePackage: () => api.get("/packages/my-packages/active"),
+  setDefaultPackage: (id) =>
+    api.put(`/packages/user-packages/${id}/set-default`),
+  create: (data) => api.post("/packages", data),
+  update: (id, data) => api.put(`/packages/${id}`, data),
+  delete: (id) => api.delete(`/packages/${id}`),
+};
+
 export default api;

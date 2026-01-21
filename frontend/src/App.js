@@ -1,18 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import Navbar from './components/Navbar';
-import PrivateRoute from './components/PrivateRoute';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import Navbar from "./components/Navbar";
+import PrivateRoute from "./components/PrivateRoute";
 
 // Pages
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Schedule from './pages/Schedule';
-import MyBookings from './pages/MyBookings';
-import AdminDashboard from './pages/AdminDashboard';
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Schedule from "./pages/Schedule";
+import MyBookings from "./pages/MyBookings";
+import Profile from "./pages/Profile";
+import AdminDashboard from "./pages/AdminDashboard";
 
-import './assets/styles/App.css';
+import "./assets/styles/App.css";
 
 function App() {
   return (
@@ -32,6 +33,15 @@ function App() {
                 element={
                   <PrivateRoute>
                     <MyBookings />
+                  </PrivateRoute>
+                }
+              />
+
+              <Route
+                path="/profile"
+                element={
+                  <PrivateRoute>
+                    <Profile />
                   </PrivateRoute>
                 }
               />
@@ -65,7 +75,10 @@ const NotFound = () => (
 const Footer = () => (
   <footer className="footer">
     <div className="footer-content">
-      <p>&copy; 2024 Urban Complex - Escuela de Danza. Todos los derechos reservados.</p>
+      <p>
+        &copy; 2024 Urban Complex - Escuela de Danza. Todos los derechos
+        reservados.
+      </p>
     </div>
   </footer>
 );
